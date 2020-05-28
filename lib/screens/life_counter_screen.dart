@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtglifecounter/models/player_data.dart';
-import 'package:mtglifecounter/module/life_counter.dart';
+import 'package:mtglifecounter/modules/life_counter.dart';
 
 PlayerData playerData = PlayerData();
 

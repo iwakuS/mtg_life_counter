@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mtglifecounter/module/LifeCounter.dart';
+import 'package:mtglifecounter/module/life_counter.dart';
 
 class LifeCounterScreen extends StatelessWidget {
   const LifeCounterScreen();

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mtglifecounter/models/player.dart';
 
 class LifeCounter extends StatefulWidget {
-  LifeCounter({Key key, this.name}) : super(key: key);
-  final String name;
+  final Player player;
+
+  LifeCounter({this.player});
 
   @override
   _LifeCounterState createState() => _LifeCounterState();
@@ -20,20 +22,6 @@ class _LifeCounterState extends State<LifeCounter> {
     ]);
   }
 
-  int _counter = 20;
-
-  void _changeCounter(int number) {
-    setState(() {
-      _counter += number;
-    });
-  }
-
-  void _resetCounter() {
-    setState(() {
-      _counter = 20;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -41,20 +29,28 @@ class _LifeCounterState extends State<LifeCounter> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           FloatingActionButton(
-            onPressed: _resetCounter,
+            onPressed: () {
+              setState(() {
+                widget.player.reset();
+              });
+            },
             tooltip: 'Reset',
             child: Icon(Icons.update),
           ),
           Text(
-            widget.name,
+            widget.player.name,
           ),
           FlatButton(
             shape: CircleBorder(),
             child: Text(
-              '$_counter',
+              '${widget.player.life}',
               style: TextStyle(fontSize: 70),
             ),
-            onPressed: () => _changeCounter(-1),
+            onPressed: () {
+              setState(() {
+                widget.player.changeLifeCounter(-1);
+              });
+            },
             highlightColor: Colors.pink,
             splashColor: Colors.red,
           ),
@@ -62,7 +58,11 @@ class _LifeCounterState extends State<LifeCounter> {
             IconButton(
               icon: Icon(Icons.exposure_neg_1),
               tooltip: 'Decrease count by 1',
-              onPressed: () => _changeCounter(-1),
+              onPressed: () {
+                setState(() {
+                  widget.player.changeLifeCounter(-1);
+                });
+              },
               highlightColor: Colors.pink,
               splashColor: Colors.red,
             ),
@@ -70,7 +70,11 @@ class _LifeCounterState extends State<LifeCounter> {
             IconButton(
               icon: Icon(Icons.exposure_plus_1),
               tooltip: 'Increase count by 1',
-              onPressed: () => _changeCounter(1),
+              onPressed: () {
+                setState(() {
+                  widget.player.changeLifeCounter(1);
+                });
+              },
               highlightColor: Colors.pink,
               splashColor: Colors.blue,
             ),
@@ -80,7 +84,11 @@ class _LifeCounterState extends State<LifeCounter> {
             IconButton(
               icon: Icon(Icons.exposure_neg_2),
               tooltip: 'Decrease count by 2',
-              onPressed: () => _changeCounter(-2),
+              onPressed: () {
+                setState(() {
+                  widget.player.changeLifeCounter(-2);
+                });
+              },
               highlightColor: Colors.pink,
               splashColor: Colors.orange,
             ),
@@ -88,7 +96,11 @@ class _LifeCounterState extends State<LifeCounter> {
             IconButton(
               icon: Icon(Icons.exposure_plus_2),
               tooltip: 'Increase count by 2',
-              onPressed: () => _changeCounter(2),
+              onPressed: () {
+                setState(() {
+                  widget.player.changeLifeCounter(2);
+                });
+              },
               highlightColor: Colors.pink,
               splashColor: Colors.indigo,
             ),

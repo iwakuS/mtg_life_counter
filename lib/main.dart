@@ -1,3 +1,7 @@
+// メモ
+// playerクラスに関数をいろいろ持たせてよいかは、疑問
+// ##############################################################
+
 import 'package:flutter/material.dart';
 import 'package:mtglifecounter/screens/life_counter_screen.dart';
 

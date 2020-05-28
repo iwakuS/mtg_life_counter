@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mtglifecounter/models/player_data.dart';
 import 'package:mtglifecounter/module/life_counter.dart';
 
-class LifeCounterScreen extends StatelessWidget {
-  const LifeCounterScreen();
-  static const _playerNames = <String>[
-    'Player1',
-    'Player2',
-  ];
+PlayerData playerData = PlayerData();
 
+class LifeCounterScreen extends StatelessWidget {
   Widget _buildCategoryWidgets(List<Widget> counters) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -22,9 +19,9 @@ class LifeCounterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final counters = <LifeCounter>[];
 
-    for (var i = 0; i < _playerNames.length; i++) {
+    for (var i = 0; i < playerData.playerCount; i++) {
       counters.add(LifeCounter(
-        name: _playerNames[i],
+        player: playerData.players[i],
       ));
     }
 

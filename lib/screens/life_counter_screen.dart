@@ -33,12 +33,12 @@ class LifeCounterScreen extends StatelessWidget {
     }
 
     final gridView = Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
       child: _buildCategoryWidgets(counters),
     );
 
     return Scaffold(
-      body: gridView,
+      body: SafeArea(child: gridView),
     );
   }
 }

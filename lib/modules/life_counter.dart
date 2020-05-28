@@ -26,8 +26,10 @@ class _LifeCounterState extends State<LifeCounter> {
           tooltip: 'Reset',
           child: Icon(Icons.update),
         ),
-        Text(
-          widget.player.name,
+        Expanded(
+          child: Text(
+            widget.player.name,
+          ),
         ),
         FlatButton(
           shape: CircleBorder(),
@@ -42,53 +44,61 @@ class _LifeCounterState extends State<LifeCounter> {
           },
           splashColor: kDecrement1Color,
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.exposure_neg_1),
-            tooltip: 'Decrease count by 1',
-            onPressed: () {
-              setState(() {
-                widget.player.changeLifeCounter(-1);
-              });
-            },
-            splashColor: kDecrement1Color,
-          ),
-          const SizedBox(width: 20.0),
-          IconButton(
-            icon: Icon(Icons.exposure_plus_1),
-            tooltip: 'Increase count by 1',
-            onPressed: () {
-              setState(() {
-                widget.player.changeLifeCounter(1);
-              });
-            },
-            splashColor: kIncrement1Color,
-          ),
-        ]),
+        Expanded(
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.exposure_neg_1),
+                  tooltip: 'Decrease count by 1',
+                  onPressed: () {
+                    setState(() {
+                      widget.player.changeLifeCounter(-1);
+                    });
+                  },
+                  splashColor: kDecrement1Color,
+                ),
+                const SizedBox(width: 20.0),
+                IconButton(
+                  icon: Icon(Icons.exposure_plus_1),
+                  tooltip: 'Increase count by 1',
+                  onPressed: () {
+                    setState(() {
+                      widget.player.changeLifeCounter(1);
+                    });
+                  },
+                  splashColor: kIncrement1Color,
+                ),
+              ]),
+        ),
         const SizedBox(height: 20.0),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.exposure_neg_2),
-            tooltip: 'Decrease count by 2',
-            onPressed: () {
-              setState(() {
-                widget.player.changeLifeCounter(-2);
-              });
-            },
-            splashColor: kDecrement2Color,
-          ),
-          const SizedBox(width: 20.0),
-          IconButton(
-            icon: Icon(Icons.exposure_plus_2),
-            tooltip: 'Increase count by 2',
-            onPressed: () {
-              setState(() {
-                widget.player.changeLifeCounter(2);
-              });
-            },
-            splashColor: kIncrement2Color,
-          ),
-        ]),
+        Expanded(
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.exposure_neg_2),
+                  tooltip: 'Decrease count by 2',
+                  onPressed: () {
+                    setState(() {
+                      widget.player.changeLifeCounter(-2);
+                    });
+                  },
+                  splashColor: kDecrement2Color,
+                ),
+                const SizedBox(width: 20.0),
+                IconButton(
+                  icon: Icon(Icons.exposure_plus_2),
+                  tooltip: 'Increase count by 2',
+                  onPressed: () {
+                    setState(() {
+                      widget.player.changeLifeCounter(2);
+                    });
+                  },
+                  splashColor: kIncrement2Color,
+                ),
+              ]),
+        ),
       ],
     );
   }

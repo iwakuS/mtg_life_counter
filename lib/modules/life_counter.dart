@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mtglifecounter/models/player.dart';
 
 class LifeCounter extends StatefulWidget {
@@ -12,16 +11,6 @@ class LifeCounter extends StatefulWidget {
 }
 
 class _LifeCounterState extends State<LifeCounter> {
-  // 画面を横に固定する場合
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-    ]);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(

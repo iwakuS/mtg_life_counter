@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtglifecounter/models/player.dart';
+import 'package:mtglifecounter/utilities/constants.dart';
 
 class LifeCounter extends StatefulWidget {
   final Player player;
@@ -33,15 +34,14 @@ class _LifeCounterState extends State<LifeCounter> {
             shape: CircleBorder(),
             child: Text(
               '${widget.player.life}',
-              style: TextStyle(fontSize: 70),
+              style: kLifeTextStyle,
             ),
             onPressed: () {
               setState(() {
                 widget.player.changeLifeCounter(-1);
               });
             },
-            highlightColor: Colors.pink,
-            splashColor: Colors.red,
+            splashColor: kDecrement1Color,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             IconButton(
@@ -52,8 +52,7 @@ class _LifeCounterState extends State<LifeCounter> {
                   widget.player.changeLifeCounter(-1);
                 });
               },
-              highlightColor: Colors.pink,
-              splashColor: Colors.red,
+              splashColor: kDecrement1Color,
             ),
             const SizedBox(width: 20.0),
             IconButton(
@@ -64,8 +63,7 @@ class _LifeCounterState extends State<LifeCounter> {
                   widget.player.changeLifeCounter(1);
                 });
               },
-              highlightColor: Colors.pink,
-              splashColor: Colors.blue,
+              splashColor: kIncrement1Color,
             ),
           ]),
           const SizedBox(height: 20.0),
@@ -78,8 +76,7 @@ class _LifeCounterState extends State<LifeCounter> {
                   widget.player.changeLifeCounter(-2);
                 });
               },
-              highlightColor: Colors.pink,
-              splashColor: Colors.orange,
+              splashColor: kDecrement2Color,
             ),
             const SizedBox(width: 20.0),
             IconButton(
@@ -90,8 +87,7 @@ class _LifeCounterState extends State<LifeCounter> {
                   widget.player.changeLifeCounter(2);
                 });
               },
-              highlightColor: Colors.pink,
-              splashColor: Colors.indigo,
+              splashColor: kIncrement2Color,
             ),
           ]),
         ],

@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+const kDefaultLife = 20;
+
 const kLifeTextStyle = TextStyle(
   fontSize: 70,
 );
